@@ -22,8 +22,8 @@ namespace RestOpinionPoll.Repositories
 
         public Question AddQuestion(Question question)
         {
-            context.Question.Add(question);
             question.Validate();
+            context.Question.Add(question);
             context.SaveChanges();
             return question;
         }

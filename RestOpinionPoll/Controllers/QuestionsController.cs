@@ -23,6 +23,13 @@ namespace RestOpinionPoll.Controllers
             return repos.GetQuestions();
         }
 
+        [HttpPost]
+        public IActionResult Post([FromBody] Question question)
+        {
+            repos.AddQuestion(question);
+            return Ok();
+        }
+
        
     }
 }

@@ -37,7 +37,22 @@ namespace RestOpinionPoll.Repositories.Tests
         [TestMethod()]
         public void AddQuestionTest()
         {
-            Assert.Fail();
+            Question question = new Question()
+            {
+                QuestionText = "What is your favorite color?",
+                Category = "Color",
+                Option1 = "Red",
+                Option2 = "Blue",
+                Option3 = "Green",
+                Option1Count = 0,
+                Option2Count = 0,
+                Option3Count = 0
+            };
+            Question AddedQuestion = _questionsRepo.AddQuestion(question);
+            Assert.AreEqual(6,AddedQuestion.QuestionId);
+            Assert.AreEqual(6, _dbContext.Question.Count());
+                
+
         }
     }
 }
