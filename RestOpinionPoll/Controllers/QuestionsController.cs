@@ -18,9 +18,9 @@ namespace RestOpinionPoll.Controllers
         }
         // GET: api/<ValuesController>
         [HttpGet]
-        public IEnumerable<Question> Get()
+        public IEnumerable<Question> Get([FromQuery] string? searchQuery)
         {
-            return repos.GetQuestions();
+            return repos.GetQuestions(searchQuery);
         }
 
         [HttpPost]
