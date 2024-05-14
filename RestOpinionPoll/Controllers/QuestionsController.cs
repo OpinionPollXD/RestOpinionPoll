@@ -30,6 +30,28 @@ namespace RestOpinionPoll.Controllers
             return Ok();
         }
 
+        [HttpPut]
+        public IActionResult Put([FromBody] Question question)
+        {
+            var updatedQuestion = repos.UpdateQuestion(question);
+            if (updatedQuestion == null)
+            {
+                return NotFound();
+            }
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var deletedQuestion = repos.DeleteQuestion(id);
+            if (deletedQuestion == null)
+            {
+                return NotFound();
+            }
+            return Ok();
+        }
+
        
     }
 }
