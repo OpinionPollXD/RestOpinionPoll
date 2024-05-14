@@ -67,5 +67,29 @@ namespace RestOpinionPoll.Repositories
             }
             return questionToDelete;
         }
+
+        public Question? SubmitAnswer(int id, int option)
+        {
+            Question? questionToUpdate = context.Question.FirstOrDefault(q => q.QuestionId == id);
+            if (questionToUpdate != null)
+            {
+                switch (option)
+                {
+                    case 1:
+                        questionToUpdate.Option1Count++;
+                        break;
+                    case 2:
+                        questionToUpdate.Option2Count++;
+                        break;
+                    case 3:
+                        questionToUpdate.Option3Count++;
+                        break;
+                    default:
+                        throw new ArgumentException("Invalid option");
+                }
+                context.SaveChanges();
+            }
+            return questionToUpdate;
+        }
     }
 }
