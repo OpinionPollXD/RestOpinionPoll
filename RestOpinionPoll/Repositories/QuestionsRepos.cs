@@ -15,9 +15,16 @@ namespace RestOpinionPoll.Repositories
             this.context = service;
         }
 
-        public IEnumerable<Question> GetQuestions()
+        public IEnumerable<Question> GetQuestions(string searchQuery = null)
         {
-            return context.Question.AsNoTracking().ToList();
+            List<Question> questions = new(context.Question.AsNoTracking().ToList());
+            if (searchQuery != null) 
+            {
+                questions = questions.FindAll(q =>
+                q.QuestionText.ToLower().StartsWith(searchQuery.ToLower()) || 
+                q.Category.ToLower().StartsWith(searchQuery.ToLower()));
+            }
+            return questions;
         }
 
         public Question AddQuestion(Question question)
