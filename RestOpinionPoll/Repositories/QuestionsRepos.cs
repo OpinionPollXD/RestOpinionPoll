@@ -40,9 +40,9 @@ namespace RestOpinionPoll.Repositories
             return context.Question.AsNoTracking().FirstOrDefault(q => q.QuestionId == id);
         }*/
 
-        public Question? UpdateQuestion(Question question)
+        public Question? UpdateQuestion(int id, Question question)
         {
-            Question? questionToUpdate = context.Question.FirstOrDefault(q => q.QuestionId == question.QuestionId);
+            Question? questionToUpdate = context.Question.FirstOrDefault(q => q.QuestionId == id);
             if (questionToUpdate != null)
             {
                 questionToUpdate.QuestionText = question.QuestionText;

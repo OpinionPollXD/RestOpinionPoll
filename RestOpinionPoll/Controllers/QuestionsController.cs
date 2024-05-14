@@ -30,10 +30,10 @@ namespace RestOpinionPoll.Controllers
             return Ok();
         }
 
-        [HttpPut]
-        public IActionResult Put([FromBody] Question question)
+        [HttpPut("{id}")]
+        public IActionResult Put(int id , [FromBody] Question question)
         {
-            var updatedQuestion = repos.UpdateQuestion(question);
+            var updatedQuestion = repos.UpdateQuestion(id, question);
             if (updatedQuestion == null)
             {
                 return NotFound();
