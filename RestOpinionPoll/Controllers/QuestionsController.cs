@@ -52,6 +52,7 @@ namespace RestOpinionPoll.Controllers
             return Ok();
         }
 
+
         [HttpPost("SubmitAnswer")]
         public IActionResult SubmitAnswer([FromBody] AnswerSubmission submission)
         {
