@@ -52,6 +52,16 @@ namespace RestOpinionPoll.Controllers
             return Ok();
         }
 
-       
+        [HttpPost("SubmitAnswer")]
+        public IActionResult SubmitAnswer([FromBody] AnswerSubmission submission)
+        {
+            var question = repos.SubmitAnswer(submission.QuestionId, submission.Option);
+            if (question == null)
+            {
+                return NotFound();
+            }
+            return Ok(question);
+        }
+
     }
 }
