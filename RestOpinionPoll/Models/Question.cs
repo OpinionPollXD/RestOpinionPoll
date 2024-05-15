@@ -25,7 +25,7 @@ public partial class Question
 
     public int Option3Count { get; set; }
 
-
+    public int Option { get; set; }
 
 
 
