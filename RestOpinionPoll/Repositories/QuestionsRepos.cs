@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace RestOpinionPoll.Repositories
 {
-   
+
     public class QuestionsRepos
     {
         OpinionPollContext context;
@@ -18,10 +18,10 @@ namespace RestOpinionPoll.Repositories
         public IEnumerable<Question> GetQuestions(string searchQuery = null)
         {
             List<Question> questions = new(context.Question.AsNoTracking().ToList());
-            if (searchQuery != null) 
+            if (searchQuery != null)
             {
                 questions = questions.FindAll(q =>
-                q.QuestionText.ToLower().StartsWith(searchQuery.ToLower()) || 
+                q.QuestionText.ToLower().StartsWith(searchQuery.ToLower()) ||
                 q.Category.ToLower().StartsWith(searchQuery.ToLower()));
             }
             return questions;
