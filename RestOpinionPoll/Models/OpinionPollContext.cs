@@ -41,6 +41,9 @@ public partial class OpinionPollContext : DbContext
                 .IsRequired()
                 .HasMaxLength(100)
                 .IsUnicode(false);
+            entity.Property(e => e.Active)
+                .IsRequired()
+                .IsUnicode(false);
         });
 
         OnModelCreatingPartial(modelBuilder);
