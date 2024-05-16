@@ -25,6 +25,8 @@ public partial class Question
 
     public int Option3Count { get; set; }
 
+    public int Active { get; set; }
+
 
 
 
@@ -111,6 +113,19 @@ public partial class Question
         if (Option3Count < 0)
         {
             throw new ArgumentOutOfRangeException("Option count is too low");
+        }
+
+    }
+
+    public void ValidateActive()
+    {
+        if (Active < 0)
+        {
+            throw new ArgumentOutOfRangeException("Active count should be 1 or 0");
+        }
+        if (Active > 1)
+        {
+            throw new ArgumentOutOfRangeException("Active count should be 1 or 0");
         }
 
     }
