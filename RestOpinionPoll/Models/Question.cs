@@ -132,7 +132,7 @@ public partial class Question
 
 
     public void Validate()
-    {
+    {   
         QuestionLength();
         CategoryLength();
         ValidateOption1Length();
@@ -141,6 +141,7 @@ public partial class Question
         ValdateOption1CountRange();
         ValdateOption2CountRange();
         ValdateOption3CountRange();
+        ValidateActive();
        
        
     }   
