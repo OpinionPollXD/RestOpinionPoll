@@ -50,8 +50,13 @@ public partial class OpinionPollContext : DbContext
 
         modelBuilder.Entity<Motion>(entity =>
         {
-            entity.HasKey(e => e.ActiveMotion).HasName("PK__Motion");
-                
+            entity.HasKey(e => e.ActiveMotion).HasName("PK__Motion__1AAF926C6A86053D");
+
+            entity.Property(e => e.ActiveMotion)
+                .IsRequired()
+                .HasMaxLength(50)
+                .IsUnicode(false);
+
         });
 
         OnModelCreatingPartial(modelBuilder);
