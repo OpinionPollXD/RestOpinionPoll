@@ -54,7 +54,7 @@ public partial class OpinionPollContext : DbContext
 
             entity.Property(e => e.ActiveMotion)
                 .IsRequired()
-                .HasMaxLength(50)
+                .HasMaxLength(30)
                 .IsUnicode(false);
 
         });
