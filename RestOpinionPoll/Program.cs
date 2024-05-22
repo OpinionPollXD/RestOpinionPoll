@@ -23,6 +23,7 @@ builder.Services.AddDbContext<OpinionPollContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("opinionPoll")));
 
 builder.Services.AddTransient<QuestionsRepos, QuestionsRepos>();
+builder.Services.AddTransient<MotionsRepos, MotionsRepos>();
 
 var app = builder.Build();
 
