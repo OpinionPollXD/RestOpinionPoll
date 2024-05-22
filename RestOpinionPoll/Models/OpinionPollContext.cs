@@ -50,11 +50,11 @@ public partial class OpinionPollContext : DbContext
 
         modelBuilder.Entity<Motion>(entity =>
         {
-            entity.HasKey(e => e.ActiveMotion).HasName("PK__Motion__1AAF926C6A86053D");
+            entity.HasKey(e => e.ActiveMotion).HasName("PK__Motion__1AAF926C79D5BA21");
 
             entity.Property(e => e.ActiveMotion)
                 .IsRequired()
-                .HasMaxLength(30)
+                .HasMaxLength(100)
                 .IsUnicode(false);
 
         });
