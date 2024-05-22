@@ -5,6 +5,6 @@ namespace RestOpinionPoll.Models
 {
     public class Motion
     {
-        public DateTime ActiveMotion { get; set; }
+        public string? ActiveMotion { get; set; }
     }
 }
