@@ -15,6 +15,8 @@ public partial class OpinionPollContext : DbContext
 
     public virtual DbSet<Question> Question { get; set; }
 
+    public virtual DbSet<Motion> Motion { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Question>(entity =>
@@ -41,6 +43,20 @@ public partial class OpinionPollContext : DbContext
                 .IsRequired()
                 .HasMaxLength(100)
                 .IsUnicode(false);
+            entity.Property(e => e.Active)
+                .IsRequired()
+                .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<Motion>(entity =>
+        {
+            entity.HasKey(e => e.ActiveMotion).HasName("PK__Motion__1AAF926C79D5BA21");
+
+            entity.Property(e => e.ActiveMotion)
+                .IsRequired()
+                .HasMaxLength(100)
+                .IsUnicode(false);
+
         });
 
         OnModelCreatingPartial(modelBuilder);

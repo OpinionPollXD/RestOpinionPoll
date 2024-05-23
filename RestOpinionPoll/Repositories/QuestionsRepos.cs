@@ -91,5 +91,13 @@ namespace RestOpinionPoll.Repositories
             }
             return questionToUpdate;
         }
+
+        public IEnumerable<Question> GetActiveQuestions()
+        {
+            List<Question> questions = new(context.Question.AsNoTracking().ToList());
+            questions = questions.FindAll(q => q.Active == true);
+            return questions;
+
+        }
     }
 }

@@ -63,5 +63,11 @@ namespace RestOpinionPoll.Controllers
             return Ok(question);
         }
 
+        [HttpGet("GetActiveQuestions")]
+        public IEnumerable<Question> GetActiveQuestions()
+        {
+            return repos.GetActiveQuestions();
+        }
+
     }
 }

@@ -25,6 +25,8 @@ public partial class Question
 
     public int Option3Count { get; set; }
 
+    public bool Active { get; set; }
+
 
 
 
@@ -115,9 +117,18 @@ public partial class Question
 
     }
 
+    public void ValidateActive()
+    {
+        if (Active == null)
+        {
+            throw new ArgumentOutOfRangeException("Active count should be 1 or 0");
+        }
+
+    }
+
 
     public void Validate()
-    {
+    {   
         QuestionLength();
         CategoryLength();
         ValidateOption1Length();
@@ -126,6 +137,7 @@ public partial class Question
         ValdateOption1CountRange();
         ValdateOption2CountRange();
         ValdateOption3CountRange();
+        ValidateActive();
        
        
     }   
