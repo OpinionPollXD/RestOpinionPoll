@@ -50,6 +50,7 @@ namespace RestOpinionPoll.Repositories
                 questionToUpdate.Option1 = question.Option1;
                 questionToUpdate.Option2 = question.Option2;
                 questionToUpdate.Option3 = question.Option3;
+                questionToUpdate.Active = question.Active;
                 question.Validate();
                 context.SaveChanges();
 
