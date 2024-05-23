@@ -95,7 +95,7 @@ namespace RestOpinionPoll.Repositories
         public IEnumerable<Question> GetActiveQuestions()
         {
             List<Question> questions = new(context.Question.AsNoTracking().ToList());
-            questions = questions.FindAll(q => q.Active == 1);
+            questions = questions.FindAll(q => q.Active == true);
             return questions;
 
         }
