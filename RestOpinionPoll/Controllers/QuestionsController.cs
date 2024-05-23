@@ -39,7 +39,7 @@ namespace RestOpinionPoll.Controllers
                 return NotFound();
             }
             return Ok();
-        }
+        }        
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
@@ -68,6 +68,8 @@ namespace RestOpinionPoll.Controllers
         {
             return repos.GetActiveQuestions();
         }
+
+
 
     }
 }
