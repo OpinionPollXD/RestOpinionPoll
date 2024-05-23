@@ -119,11 +119,7 @@ public partial class Question
 
     public void ValidateActive()
     {
-        if (Active < 0)
-        {
-            throw new ArgumentOutOfRangeException("Active count should be 1 or 0");
-        }
-        if (Active > 1)
+        if (Active == null)
         {
             throw new ArgumentOutOfRangeException("Active count should be 1 or 0");
         }
