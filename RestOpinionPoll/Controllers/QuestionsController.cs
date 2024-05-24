@@ -70,7 +70,7 @@ namespace RestOpinionPoll.Controllers
         }        
 
         [HttpDelete("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult Delete(int id)
         {
@@ -79,10 +79,9 @@ namespace RestOpinionPoll.Controllers
             {
                 return NotFound();
             }
-            else
-            {
-                return Ok();
-            }
+            
+            return NoContent();
+            
         }
 
         [HttpPost("SubmitAnswer")]
